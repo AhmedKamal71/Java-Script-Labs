@@ -66,12 +66,16 @@ switch (true) {
     case clock < 12 && clock > 0:
         alert(`The Clock Is: ${clock} AM`);
         break;
-    case clock > 12:
-        alert(`The Clock Is: ${clock - 12} PM`);
+    case clock > 12 && clock < 24:
+        var newClock = clock - 12;
+        alert(`The Clock Is: ${newClock} PM`)
+        break;
+    case clock == 12:
+        alert(`The Clock Is: 12 PM`);
         break;
     case clock == 0:
-        alert(`The Clock Is: ${12} AM`)
+        alert(`The Clock Is: 12 AM`);
         break;
     default:
-        alert('Invalid Input!');
+        alert(`Invalid Input, Please Try Again.`);
 }
