@@ -1,3 +1,4 @@
+// Class Person:
 class Person {
     constructor(fName, money, sleepMood, healthRate) {
         this.fName = fName;
@@ -40,6 +41,7 @@ class Person {
     }
 };
 
+// Class Employee:
 class Employee extends Person {
     constructor(fName, id, email, workMood, salary, isManager) {
         super(fName);
@@ -75,17 +77,23 @@ class Employee extends Person {
     }
 };
 
+// Class Office:
 class Office {
+    // Constructor
     constructor(name) {
         this.name = name;
         this.employees = [];
     }
+
+    // Show All Employees
     getAllEmoloyees() {
         if (this.employees.length == 0) {
             console.log('There Is No Employee In The Company!');
         }
         return this.employees;
     }
+
+    // Show Employee Info
     getEmployee(empId) {
         for (let employee of this.employees) {
             if (employee.id == empId) {
@@ -98,10 +106,12 @@ class Office {
         }
     }
 
+    // Hire Function
     Hire(emp) {
         this.employees.push(emp);
     }
 
+    // Fire Function
     Fire(empId) {
         const index = this.employees.findIndex(emp => emp.id === empId);
         if (index !== -1) {
@@ -113,6 +123,7 @@ class Office {
     }
 };
 
+// User Menu Function
 function Menu() {
     var choice = prompt('1) Add New Employee\n2) Display Employees\n3) Display Employee Info\n4) Fire Employee\n5) Quit');
     switch (choice) {
@@ -136,18 +147,19 @@ function Menu() {
     }
 }
 
-const obj = new Office('Ahmed Company')
-const obj1 = new Employee();
-var flag = true;
+// Create Object From Class Office
+const office = new Office('Ahmed Company')
+// Create Object From Class Employee
+const employe = new Employee();
 
+// Function Add To Take Data From User
 function Add() {
     var Name = prompt('Enter Employee Full Name: ')
     var Email = prompt('Enter Employee Email: ')
     var Id = prompt('Enter Employee ID: ')
     var Mood = Number(prompt('Enter Employee Work Hours: '));
-
     var Salary = Number(prompt('Enter Employee Salary: '))
-    obj1.setSalary(Salary)
+    employe.setSalary(Salary)
     var IsManager = prompt('Is This Employee A Manager? (T/F) ')
     if (IsManager === "T") {
         IsManager = true;
@@ -155,36 +167,39 @@ function Add() {
     else if (IsManager === "F") {
         IsManager = false;
     }
+    // Create An Object To Hold All Information
     const addedEmp = {
         name: Name,
         email: Email,
         id: Id.toString(),
-        Work_mood: obj1.work(Mood),
-        salary: obj1.getSalary(),
+        Work_mood: employe.work(Mood),
+        salary: employe.getSalary(),
         isManager: IsManager
     };
-    obj.Hire(addedEmp);
+    office.Hire(addedEmp);
 }
 
+// Printing The List Of Employees In The Console
 function displayAll() {
-    console.log(obj.getAllEmoloyees());
+    console.log(office.getAllEmoloyees());
 }
 
+// Display Specific Employee To User
 function displayInfo() {
     var index = prompt("Please enter the employee's ID number to view their information");
-    console.log(obj.getEmployee(index));
+    console.log(office.getEmployee(index));
 }
 
 function fire() {
     var empID = prompt("please enter the employee's ID number to Fire him");
-    obj.Fire(empID);
+    office.Fire(empID);
 
 }
 
 function Quit() {
     flag = false;
 }
-
+var flag = true;
 while (flag) {
     Menu()
 }
