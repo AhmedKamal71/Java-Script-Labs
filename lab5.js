@@ -46,17 +46,16 @@ class Employee extends Person {
         this.id = id;
         this.email = email;
         this.workMood = workMood;
-        this.salary = salary;
         this.isManager = true;
 
     }
-    set salary(value) {
+    setSalary(value) {
         this.salary = value
         if (value < 1000) {
             this.salary = 1000;
         }
     }
-    get salary() {
+    getSalary() {
         return this.salary;
     }
 };
@@ -86,10 +85,12 @@ class Office {
     }
 
     Fire(empId) {
-        for (let i = 0; i < this.employees.length; i++) {
-            if (this.employees[i].id === empId) {
-                delete this.employees[i];
-            }
+        const index = this.employees.findIndex(emp => emp.id === empId);
+        if (index !== -1) {
+            this.employees.splice(index, 1);
+            console.log(`Employee with ID ${empId} has been fired.`);
+        } else {
+            console.log(`Employee with ID ${empId} not found.`);
         }
     }
 };
@@ -118,6 +119,7 @@ function Menu() {
 }
 
 const obj = new Office('Ahmed Company')
+const obj1 = new Employee();
 var flag = true;
 
 function Add() {
@@ -125,7 +127,8 @@ function Add() {
     var Email = prompt('Enter Employee Email: ')
     var Id = prompt('Enter Employee ID: ')
     var Mood = prompt('Enter Employee workMood: ')
-    var Salary = prompt('Enter Employee Salary: ')
+    var Salary = Number(prompt('Enter Employee Salary: '))
+    obj1.setSalary(Salary)
     var IsManager = prompt('Is This Employee A Manager? (T/F) ')
     if (IsManager === "T") {
         IsManager = true;
@@ -136,9 +139,9 @@ function Add() {
     const addedEmp = {
         name: Name,
         email: Email,
-        id: parseInt(Id),
+        id: Id.toString(),
         mood: Mood,
-        salary: parseFloat(Salary),
+        salary: obj1.getSalary(),
         isManager: IsManager
     };
     obj.Hire(addedEmp);
