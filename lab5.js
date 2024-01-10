@@ -58,6 +58,21 @@ class Employee extends Person {
     getSalary() {
         return this.salary;
     }
+    work(hours) {
+        if (hours == 8) {
+            this.workMood = 'Happy';
+        }
+        else if (hours > 8) {
+            this.workMood = 'Tired';
+        }
+        else if (hours < 8) {
+            this.workMood = 'Lazy';
+        }
+        else {
+            console.log("Invalid Work Hours");
+        }
+        return this.workMood;
+    }
 };
 
 class Office {
@@ -66,6 +81,9 @@ class Office {
         this.employees = [];
     }
     getAllEmoloyees() {
+        if (this.employees.length == 0) {
+            console.log('There Is No Employee In The Company!');
+        }
         return this.employees;
     }
     getEmployee(empId) {
@@ -126,7 +144,8 @@ function Add() {
     var Name = prompt('Enter Employee Full Name: ')
     var Email = prompt('Enter Employee Email: ')
     var Id = prompt('Enter Employee ID: ')
-    var Mood = prompt('Enter Employee workMood: ')
+    var Mood = Number(prompt('Enter Employee Work Hours: '));
+
     var Salary = Number(prompt('Enter Employee Salary: '))
     obj1.setSalary(Salary)
     var IsManager = prompt('Is This Employee A Manager? (T/F) ')
@@ -140,7 +159,7 @@ function Add() {
         name: Name,
         email: Email,
         id: Id.toString(),
-        mood: Mood,
+        Work_mood: obj1.work(Mood),
         salary: obj1.getSalary(),
         isManager: IsManager
     };
