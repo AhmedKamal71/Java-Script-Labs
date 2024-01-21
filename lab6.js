@@ -18,7 +18,7 @@ triangle.calcPerimeter()
 // Part 2
 class Square extends Shape {
     constructor(sideLength) {
-        super('square', 4, sideLength)
+        super('square', 4)
         this.sideLength = sideLength;
     }
     calcArea() {
@@ -43,8 +43,8 @@ class SquaredTriple extends Triple {
     static longDescription;
     static description = 'square the triple of any number you provide'
     static calculate(n) {
-        var result = Triple.calculate(n)
-        return result * result
+        // var result = Triple.calculate(n)
+        return Triple.calculate(n) * Triple.calculate(n)
     }
 }
 console.log(Triple.description);

@@ -21,7 +21,7 @@ else {
 }
 
 //------------------------------------------------------------------------------------------------------------
-// Q1
+// Q2
 
 alert("Welcome, It is the first release of a calculator that only has a summation feature")
 num1 = prompt("Enter The First Number: ")
