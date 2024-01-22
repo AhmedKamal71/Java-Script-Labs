@@ -6,7 +6,6 @@ function getValues() {
             user_name: userName,
             user_password: password
         }
-
         if (info.user_name === 'admin' && info.user_password === '123') {
             Message('Welcome');
         } else {
