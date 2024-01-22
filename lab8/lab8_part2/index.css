@@ -1,0 +1,26 @@
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: aquamarine;
+}
+
+#watch {
+    font-size: 2em;
+}
+
+#alarmInput {
+    margin-top: 20px;
+}
+
+#setAlarmBtn {
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+#days {
+    display: block;
+}
