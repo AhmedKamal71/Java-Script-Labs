@@ -7,11 +7,11 @@ var alarmTime;
 setInterval(Watch, 1000);
 
 function Watch() {
-    var now = new Date();
-    var day = now.getDate().toString()
-    var hours = now.getHours().toString()
-    var minutes = now.getMinutes().toString()
-    var seconds = now.getSeconds().toString()
+    var obj = new Date();
+    var day = obj.getDate().toString()
+    var hours = obj.getHours().toString()
+    var minutes = obj.getMinutes().toString()
+    var seconds = obj.getSeconds().toString()
     var time = hours + ':' + minutes + ':' + seconds;
     getDay.textContent = day
     display.textContent = time;
