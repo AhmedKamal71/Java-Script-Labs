@@ -1,0 +1,50 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: teal;
+}
+
+#todo-container {
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, .2), 0 2px 4px -1px rgba(0, 0, 0, .14);
+    background-color: wheat;
+}
+
+.task {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #eee;
+    border-radius: 4px;
+}
+
+.done {
+    color: green;
+    cursor: pointer;
+}
+
+.delete {
+    color: white;
+    cursor: pointer;
+    background-color: red;
+}
+
+#newTask {
+    border-radius: 4px;
+    resize: none;
+    background-color: #ccc;
+
+}
+
+#result {
+    font-weight: bold;
+}
