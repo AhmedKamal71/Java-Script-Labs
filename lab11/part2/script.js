@@ -8,14 +8,15 @@ async function fetchData(){
     try {
         let streamData = await fetch(url);
         if (!streamData.ok) {
-            throw new Error(`HTTP error! Status: ${streamData.status}`);
+            throw new Error(`Server error!`);
         }
 
         let transformData = await streamData.json();
         let arrayData = await transformData.data;
         display(arrayData);
+        
     } catch (error) {
-        console.error('Error fetching data:', error.message);
+        console.error('Error fetching data !!');
     }
 }
 
