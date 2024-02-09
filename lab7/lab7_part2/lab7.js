@@ -36,6 +36,7 @@ function add() {
         taskElement.appendChild(deleteButton);
         tasksList.appendChild(taskElement);
         document.getElementById('newTask').value = '';
+
     }
     else {
         Message("Please Enter The Task!");
