@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', function(){
     fetchData();
 })
@@ -6,10 +5,18 @@ document.addEventListener('DOMContentLoaded', function(){
 let url = 'https://reqres.in/api/users?page=2'
 
 async function fetchData(){
-    let streamData = await fetch(url)
-    let transformData = await streamData.json();
-    let arrayData = await transformData.data
-    display(arrayData)
+    try {
+        let streamData = await fetch(url);
+        if (!streamData.ok) {
+            throw new Error(`HTTP error! Status: ${streamData.status}`);
+        }
+
+        let transformData = await streamData.json();
+        let arrayData = await transformData.data;
+        display(arrayData);
+    } catch (error) {
+        console.error('Error fetching data:', error.message);
+    }
 }
 
 function display(users){
@@ -32,5 +39,3 @@ function display(users){
     });
     document.body.appendChild(div)
 }
-
-  
